@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-box">
+        <lightning-card title="User Statistics">
+            <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-m-around_x-small">
+                <span class="slds-form-element__label">Active Users</span>
+                <div class="slds-form-element__control">
+                    <div class="slds-form-element__static">{countActiveUser}</div>
+                </div>
+            </div>
+            <div
+                class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-hint-parent slds-m-around_x-small">
+                <span class="slds-form-element__label">Active Admin Users</span>
+                <div class="slds-form-element__control">
+                    <div class="slds-form-element__static">{countActiveAdminUser}</div>
+                </div>
+            </div>
+
+            <template for:each={userProfiles.data} for:item="pro">
+                <p class="slds-p-horizontal_small" key={pro.profileId}>
+                    {pro.profileId}-{pro.profileName}-{pro.countUsers} </p>
+            </template>
+
+
+            
+        </lightning-card>
+
+        <lightning-card title="LibsChartjs" icon-name="custom:custom19">
+            <div class="slds-m-around_medium">
+                <canvas class="donut" lwc:dom="manual"></canvas>
+            </div>
+        </lightning-card>
+    </div>
+</template>
